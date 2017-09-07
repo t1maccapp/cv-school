@@ -1,4 +1,5 @@
 # cv-school cli app
+[![Go Report Card](https://goreportcard.com/badge/github.com/t1maccapp/cv-school)](https://goreportcard.com/report/github.com/t1maccapp/cv-school)
 
 Cli app for extracting fragments with people from images
 
