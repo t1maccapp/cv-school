@@ -13,13 +13,13 @@ go build `app folder`
 ```
 
 ### Params
-* **-images, -i** ? images folder
-* **-annotations, -a** - annotations folder
+* **-images, -i** -- images folder
+* **-annotations, -a** -- annotations folder
 * **-out, -o** - folder for results
-* **-flip-horizontally, -f** ? Flip images horizontally
-* **-grayscale, -g** ? Grayscale
-* **-noise, -n** ? Add Gaussian noise
-*
+* **-flip-horizontally, -f** -- Flip images horizontally
+* **-grayscale, -g** -- Grayscale
+* **-noise, -n** -- Add Gaussian noise
+* 
 ### Examples
 
 ```
