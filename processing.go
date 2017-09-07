@@ -5,7 +5,7 @@ import (
 	"image"
 )
 
-// TODO: Tune this value
+// TODO: Add this value to cli params
 const BLUR_SIGMA = 3.5
 
 func convertToGrayscale(image *image.NRGBA) *image.NRGBA{
