@@ -9,8 +9,8 @@ const SUPPORTED_IMAGE_EXT = ".png"
 const EXT_LEN = 4
 
 type ImageInfo struct {
-	name string
-	path string
+	name       string
+	path       string
 	annotation *Annotation
 }
 

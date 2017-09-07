@@ -8,16 +8,16 @@ import (
 )
 
 type FragmentCoordinates struct {
-	XLeft int
-	YLeft int
+	XLeft  int
+	YLeft  int
 	XRight int
 	YRight int
 }
 
 type ProcessingOptions struct {
-	grayscale bool
+	grayscale        bool
 	flipHorizontally bool
-	noise bool
+	noise            bool
 }
 
 func processImagesToFragments(img *ImageInfo, options *ProcessingOptions, resultsDir string) error {
@@ -43,7 +43,7 @@ func processImagesToFragments(img *ImageInfo, options *ProcessingOptions, result
 			result = blur(result)
 		}
 
-		resultPath := path.Join(resultsDir, img.Name()[:len(img.Name())-4] + "_" + strconv.Itoa(i) + ".png")
+		resultPath := path.Join(resultsDir, img.Name()[:len(img.Name())-4]+"_"+strconv.Itoa(i)+".png")
 
 		err := imaging.Save(result, resultPath)
 		if err != nil {

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/urfave/cli"
-	"fmt"
-	"os"
 	"errors"
+	"fmt"
+	"github.com/urfave/cli"
+	"os"
 	"path"
 )
 
@@ -76,7 +76,7 @@ func main() {
 		}
 
 		for _, imageInfo := range imagesInfo {
-			annotationName := imageInfo.Name()[:len(imageInfo.Name())-4] +  ".txt"
+			annotationName := imageInfo.Name()[:len(imageInfo.Name())-4] + ".txt"
 
 			annotation, err := readAnnotationFromFile(path.Join(annotationsDir, annotationName))
 			if err != nil {
@@ -88,9 +88,9 @@ func main() {
 		}
 
 		processingOptions := &ProcessingOptions{
-			grayscale: c.Bool("grayscale"),
+			grayscale:        c.Bool("grayscale"),
 			flipHorizontally: c.Bool("flip-horizontally"),
-			noise: c.Bool("noise"),
+			noise:            c.Bool("noise"),
 		}
 
 		for _, imageInfo := range imagesInfo {

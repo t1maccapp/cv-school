@@ -1,11 +1,11 @@
 package main
 
 import (
-	"os"
 	"bufio"
 	"io"
-	"strings"
+	"os"
 	"strconv"
+	"strings"
 )
 
 type Annotation struct {
@@ -53,7 +53,7 @@ func getFragmentCoordinatesFromString(s string) (*FragmentCoordinates, error) {
 	coordinates := strings.Split(s, ",")
 
 	for i, c := range coordinates {
-		coordinates[i] = strings.TrimSuffix(strings.TrimSuffix(c, "\n"),"\r")
+		coordinates[i] = strings.TrimSuffix(strings.TrimSuffix(c, "\n"), "\r")
 	}
 
 	xLeft, err := strconv.Atoi(coordinates[0])
@@ -77,8 +77,8 @@ func getFragmentCoordinatesFromString(s string) (*FragmentCoordinates, error) {
 	}
 
 	fc := &FragmentCoordinates{
-		XLeft: xLeft,
-		YLeft: yLeft,
+		XLeft:  xLeft,
+		YLeft:  yLeft,
 		XRight: xRight,
 		YRight: yRight,
 	}

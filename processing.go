@@ -8,7 +8,7 @@ import (
 // TODO: Add this value to cli params
 const BLUR_SIGMA = 3.5
 
-func convertToGrayscale(image *image.NRGBA) *image.NRGBA{
+func convertToGrayscale(image *image.NRGBA) *image.NRGBA {
 	return imaging.Grayscale(image)
 }
 
