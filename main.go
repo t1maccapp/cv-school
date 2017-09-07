@@ -18,7 +18,7 @@ func validateInputFlags(c *cli.Context) error {
 	}
 
 	if c.String("out") == "" {
-		return errors.New("annotations (a) should be specified")
+		return errors.New("out (a) should be specified")
 	}
 
 	return nil
@@ -87,14 +87,14 @@ func main() {
 			imageInfo.SetAnnotation(annotation)
 		}
 
-		processingOprions := &ProcessingOptions{
+		processingOptions := &ProcessingOptions{
 			grayscale: c.Bool("grayscale"),
 			flipHorizontally: c.Bool("flip-horizontally"),
 			noise: c.Bool("noise"),
 		}
 
 		for _, imageInfo := range imagesInfo {
-			err := extractAndSaveFragments(imageInfo, processingOprions, resultsDir)
+			err := processImagesToFragments(imageInfo, processingOptions, resultsDir)
 			if err != nil {
 				fmt.Println(err)
 				os.Exit(1)

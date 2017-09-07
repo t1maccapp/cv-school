@@ -20,7 +20,7 @@ type ProcessingOptions struct {
 	noise bool
 }
 
-func extractAndSaveFragments(img *ImageInfo, options *ProcessingOptions, resultsDir string) error {
+func processImagesToFragments(img *ImageInfo, options *ProcessingOptions, resultsDir string) error {
 	srcImg, err := imaging.Open(img.Path())
 	if err != nil {
 		return err
