@@ -9,6 +9,7 @@ On OS X:
 ```
 brew install go dep
 git clone `this repo`
+dep ensure
 go build `app folder`
 ```
 
