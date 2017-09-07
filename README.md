@@ -19,7 +19,7 @@ go build `app folder`
 * **-flip-horizontally, -f** -- Flip images horizontally
 * **-grayscale, -g** -- Grayscale
 * **-noise, -n** -- Add Gaussian noise
-* 
+
 ### Examples
 
 ```
