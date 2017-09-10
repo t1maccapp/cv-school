@@ -11,7 +11,7 @@ On OS X:
 brew install go dep
 git clone `this repo`
 dep ensure
-go build `app folder`
+go build -o executable-bin `app folder`
 ```
 
 ### Params
@@ -20,6 +20,7 @@ go build `app folder`
 * **-out, -o** -- Folder for results
 * **-flip-horizontally, -f** -- Flip images horizontally
 * **-grayscale, -g** -- Grayscale
+* **-normalized-grayscale, -ng** -- Normalise grayscale intensity (only works with **-grayscale**)
 * **-noise, -n** -- Add Gaussian noise
 
 ### Examples
@@ -27,3 +28,5 @@ go build `app folder`
 ```
 executable-bin -i ./images -a ./annotations -o ./fragments -f -g -n
 ```
+
+Check **./out** for sample outputs
