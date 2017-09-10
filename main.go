@@ -45,6 +45,10 @@ func main() {
 			Usage: "Add Grayscaling to fragments",
 		},
 		cli.BoolFlag{
+			Name:  "normalized-grayscale, ng",
+			Usage: "Add Grayscaling to fragments",
+		},
+		cli.BoolFlag{
 			Name:  "flip-horizontally, f",
 			Usage: "Flip fragments",
 		},
@@ -88,9 +92,10 @@ func main() {
 		}
 
 		processingOptions := &ProcessingOptions{
-			grayscale:        c.Bool("grayscale"),
-			flipHorizontally: c.Bool("flip-horizontally"),
-			noise:            c.Bool("noise"),
+			grayscale:           c.Bool("grayscale"),
+			normalizedGrayscale: c.Bool("normalized-grayscale"),
+			flipHorizontally:    c.Bool("flip-horizontally"),
+			noise:               c.Bool("noise"),
 		}
 
 		for _, imageInfo := range imagesInfo {

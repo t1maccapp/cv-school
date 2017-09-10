@@ -15,9 +15,10 @@ type FragmentCoordinates struct {
 }
 
 type ProcessingOptions struct {
-	grayscale        bool
-	flipHorizontally bool
-	noise            bool
+	grayscale           bool
+	normalizedGrayscale bool
+	flipHorizontally    bool
+	noise               bool
 }
 
 func processImagesToFragments(img *ImageInfo, options *ProcessingOptions, resultsDir string) error {
@@ -29,23 +30,26 @@ func processImagesToFragments(img *ImageInfo, options *ProcessingOptions, result
 	for i, fc := range img.Annotation().FragmentCoordinates {
 		rect := image.Rect(fc.XLeft, fc.YLeft, fc.XRight, fc.YRight)
 
-		result := imaging.Crop(srcImg, rect)
+		fragment := imaging.Crop(srcImg, rect)
 
 		if options.grayscale {
-			result = convertToGrayscale(result)
+			fragment = convertToGrayscale(fragment)
+			if options.normalizedGrayscale {
+				fragment = normalizeGrayscaleIntensity(fragment)
+			}
 		}
 
 		if options.flipHorizontally {
-			result = flipHorizontally(result)
+			fragment = flipHorizontally(fragment)
 		}
 
 		if options.noise {
-			result = blur(result)
+			fragment = blur(fragment)
 		}
 
 		resultPath := path.Join(resultsDir, img.Name()[:len(img.Name())-4]+"_"+strconv.Itoa(i)+".png")
 
-		err := imaging.Save(result, resultPath)
+		err := imaging.Save(fragment, resultPath)
 		if err != nil {
 			return err
 		}
